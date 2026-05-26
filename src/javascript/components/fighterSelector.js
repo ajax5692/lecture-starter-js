@@ -2,11 +2,26 @@ import createElement from '../helpers/domHelper';
 import renderArena from './arena';
 import versusImg from '../../../resources/versus.png';
 import { createFighterPreview } from './fighterPreview';
+import fightersService from '../services/fightersService'; // this path can be adjusted based on your project structure
 
 const fighterDetailsMap = new Map();
 
 export async function getFighterInfo(fighterId) {
-    // get fighter info from fighterDetailsMap or from service and write it to fighterDetailsMap
+    try {
+        // sanity check if we already fetched this fighter's details before
+        if (fighterDetailsMap.has(fighterId)) {
+            return fighterDetailsMap.get(fighterId);
+        }
+
+        const fighterDetails = await fightersService.getFighterDetails(fighterId);
+
+        fighterDetailsMap.set(fighterId, fighterDetails);
+
+        return fighterDetails;
+    } catch (error) {
+        console.error('Failed to load fighter info:', error);
+        throw error;
+    }
 }
 
 function startFight(selectedFighters) {
