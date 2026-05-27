@@ -101,7 +101,7 @@ export function createFighterPreview(fighter, position) {
         tagName: 'p',
         className: 'rgb-text-effect'
     });
-    healthElement.innerText = `Health: ${fighter.health}`;
+    healthElement.innerText = `❤Health: ${fighter.health}`;
     healthElement.style.margin = '10px 0';
     healthElement.style.fontSize = '60px';
     healthElement.style.fontWeight = 'bold';
@@ -112,7 +112,7 @@ export function createFighterPreview(fighter, position) {
         tagName: 'p',
         className: 'rgb-text-effect'
     });
-    attackElement.innerText = `Attack: ${fighter.attack}`;
+    attackElement.innerText = `⚔ Attack: ${fighter.attack}`;
     attackElement.style.margin = '10px 0';
     attackElement.style.fontSize = '60px';
     attackElement.style.fontWeight = 'bold';
@@ -123,7 +123,7 @@ export function createFighterPreview(fighter, position) {
         tagName: 'p',
         className: 'rgb-text-effect'
     });
-    defenseElement.innerText = `Defense: ${fighter.defense}`;
+    defenseElement.innerText = `🛡 Defense: ${fighter.defense}`;
     defenseElement.style.margin = '10px 0';
     defenseElement.style.fontSize = '60px';
     defenseElement.style.fontWeight = 'bold';
